@@ -1,0 +1,70 @@
+﻿<Window x:Class="Assignment_4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment_4"
+        mc:Ignorable="d"
+        Title="Tic Tac Toe" Height="500" Width="500">
+
+    <Grid>
+        <!--create column definition for window-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--create row definition for window-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="373*"/>
+            <RowDefinition Height="97*"/>
+        </Grid.RowDefinitions>
+
+        <!-- create the 3 x 3 board representation -->
+        <Grid x:Name="Board" Grid.Column="0" Grid.Row="0" Background="Black" IsEnabled="False" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Name all buttons in order to be recognized when initializing -->
+            <Button x:Name="button_0_0" FontSize="50" Background="White" Click="btn_click"/>
+            <Button x:Name="button_0_1" FontSize="50" Background="White" Grid.Column="1" Click="btn_click"/>
+            <Button x:Name="button_0_2" FontSize="50" Background="White" Grid.Column="2" Click="btn_click"/>
+
+            <Button x:Name="button_1_0" FontSize="50" Background="White" Grid.Row="1" Click="btn_click"/>
+            <Button x:Name="button_1_1" FontSize="50" Background="White" Grid.Column="1" Grid.Row="1" Click="btn_click"/>
+            <Button x:Name="button_1_2" FontSize="50" Background="White" Grid.Column="2" Grid.Row="1" Click="btn_click"/>
+
+            <Button x:Name="button_2_0" FontSize="50" Background="White" Grid.Row="2" Click="btn_click"/>
+            <Button x:Name="button_2_1" FontSize="50" Background="White" Grid.Row="2" Grid.Column="1" Click="btn_click"/>
+            <Button x:Name="button_2_2" FontSize="50" Background="White" Grid.Column="2" Grid.Row="2" Click="btn_click"/>
+        </Grid>
+
+        <!-- StackPanel Containing the stats values -->
+        <StackPanel Grid.ColumnSpan="2" Margin="333,0,0,0" Grid.RowSpan="2">
+            <GroupBox Header="Stats" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel>
+                    <Label x:Name="player1Count">Player 1 Wins: 0</Label>
+                    <Label x:Name="player2Count">Player 2 Wins: 0</Label>
+                    <Label x:Name="tiesCount">Ties: 0</Label>
+                </StackPanel>
+            </GroupBox>
+            <Button x:Name="startBtn" Margin="30" Content="Start" Click="startBtn_Click"/>
+        </StackPanel>
+
+        <!-- StackPanel containing the game status info -->
+        <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,373,0,0" Grid.RowSpan="2">
+            <GroupBox Margin="20" Header="Game Status">
+                <Label x:Name="playerStatus">Player # Turn</Label>
+            </GroupBox>
+        </StackPanel>
+
+    </Grid>
+</Window>
